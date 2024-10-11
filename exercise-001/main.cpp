@@ -4,6 +4,18 @@
 #include "CLI/CLI.hpp"
 #include "config.h"
 
+void printVec_int16_t(std::vector<std::int16_t> vec)
+{
+    fmt::print("[");
+    for(std::int16_t num : vec)
+    {
+        fmt::print("{},",num);
+    }
+    fmt::print("]\n");
+}
+
+void sortVec(std::vector<std::int16_t> *vec)
+
 auto main(int argc, char **argv) -> int
 {
     /**
@@ -24,18 +36,21 @@ auto main(int argc, char **argv) -> int
     {
         return app.exit(e);
     }
-    std::vector<int> nums(count);
+    std::vector<std::int16_t> nums(count);
 
     for(std::int16_t i = 0; i<count;i++)
     {
         nums[i] = rand()%100+1;
     }
+    printVec_int16_t(nums);
+    
+    
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
      * More info at https://fmt.dev/latest/api.html
      */
-    fmt::print("Hello, {}!\n", app.get_name());
+    //fmt::print("Hello, {}!\n", app.get_name());
 
     /* INSERT YOUR CODE HERE */
 
