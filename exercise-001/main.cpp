@@ -14,7 +14,10 @@ void printVec_int16_t(std::vector<std::int16_t> vec)
     fmt::print("]\n");
 }
 
-void sortVec(std::vector<std::int16_t> *vec)
+void sortVec(std::vector<std::int16_t> &vec)
+{
+    std::sort(vec.begin(),vec.end());
+}
 
 auto main(int argc, char **argv) -> int
 {
@@ -43,7 +46,8 @@ auto main(int argc, char **argv) -> int
         nums[i] = rand()%100+1;
     }
     printVec_int16_t(nums);
-    
+    sortVec(nums);
+    printVec_int16_t(nums);
     
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
