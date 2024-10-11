@@ -46,8 +46,15 @@ auto main(int argc, char **argv) -> int
         nums[i] = rand()%100+1;
     }
     printVec_int16_t(nums);
+    auto start = std::chrono::system_clock::now();
     sortVec(nums);
+    auto end = std::chrono::system_clock::now();
+    auto elapsed =
+    std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     printVec_int16_t(nums);
+
+    fmt::print("Sorted in {}ms",elapsed );
+
     
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
