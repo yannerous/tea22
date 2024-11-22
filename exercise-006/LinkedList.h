@@ -43,6 +43,8 @@ void addToList(LinkedList<T>* ListPtr,T* dataPtr)
     {
         ListPtr->headPtr = nodePtr;
         ListPtr->tailPtr = nodePtr;
+
+        return;
     }
 
     //add new Node behind current tail
