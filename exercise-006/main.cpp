@@ -22,9 +22,10 @@ auto main(int argc, char** argv) -> int
     }
     printList<int>(listPtr);
     RemoveFromList<int>(listPtr,&num[1]);
+    insertIntoListAt<int>(listPtr,&num[1],2);
     printList<int>(listPtr);
 
-    
+
     LinkedList<std::string>* strListPtr = (LinkedList<std::string>*)malloc(sizeof(LinkedList<std::string>));
     std::string test = "hallo";
     std::string test2 = "Welt";

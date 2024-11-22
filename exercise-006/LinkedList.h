@@ -56,6 +56,46 @@ void addToList(LinkedList<T>* ListPtr,T* dataPtr)
     //update size
     ListPtr->size +=1;
 }
+
+template <typename T>
+void insertIntoListAt(LinkedList<T>* ListPtr,T* dataPtr,int index)
+{
+    ListNode<T>* nodePtr = newListNode(dataPtr);
+
+    //save current Head/make ptr to iterate over list
+    ListNode<T>* curNode = ListPtr->headPtr;
+    //insert at beginning
+    if(index ==0)
+    {
+        ListPtr->headPtr = nodePtr;
+        nodePtr->nextPtr = curNode;
+        return;
+    }
+    if(index == ListPtr->size)
+    {
+        addToList(ListPtr,dataPtr);
+        return;
+    }
+    //check if index is in List
+    if(index > ListPtr->size+1)
+    {
+        fmt::print("index greater than size");
+        return;
+    }
+    //iterate to element before index
+    for(int i = 1;i<index;i++)
+    {
+        curNode = curNode->nextPtr;
+    }
+    //save current node at index behind new node
+    nodePtr->nextPtr = curNode->nextPtr;
+    //sve new node at index
+    curNode->nextPtr = nodePtr; 
+
+    //update size
+    ListPtr->size +=1;
+}
+
 template <typename T>
 T RemoveFromList(LinkedList<T>* ListPtr, T* dataPtr)
 {
