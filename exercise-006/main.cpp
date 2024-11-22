@@ -1,6 +1,7 @@
 #include <fmt/chrono.h>
 #include <fmt/format.h>
 #include "LinkedList.h"
+#include <string>
 
 auto main(int argc, char** argv) -> int
 {
@@ -22,6 +23,14 @@ auto main(int argc, char** argv) -> int
     printList<int>(listPtr);
     RemoveFromList<int>(listPtr,&num[1]);
     printList<int>(listPtr);
+
+    
+    LinkedList<std::string>* strListPtr = (LinkedList<std::string>*)malloc(sizeof(LinkedList<std::string>));
+    std::string test = "hallo";
+    std::string test2 = "Welt";
+    addToList<std::string>(strListPtr,&test);
+    addToList<std::string>(strListPtr,&test2);
+    printList<std::string>(strListPtr);
 
     return 0; /* exit gracefully*/
 }
